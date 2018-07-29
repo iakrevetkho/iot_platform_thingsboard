@@ -25,6 +25,11 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-c
 # Apply permissions
 sudo chmod +x /usr/local/bin/docker-compose
 
+# Delete all previously containers
+sudo docker rm $(sudo docker ps -a -q)
+# Delete previously containers images
+sudo docker rmi $(sudo docker images -q)
+
 # Create folder for Thingsboard deployment
 mkdir thingsboard-docker
 cd thingsboard-docker
