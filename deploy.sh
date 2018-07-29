@@ -57,7 +57,7 @@ sudo docker run -d -p 1000:8080 --network="thingsboard-docker_default" --restart
 
 # Installing monitoring system
 cd monitoring
-docker-compose up -d
+sudo docker-compose up -d
 
 # Cleaning gurbage
 
