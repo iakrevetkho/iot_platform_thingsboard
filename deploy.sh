@@ -28,7 +28,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 # Delete all previously containers
 sudo docker rm $(sudo docker ps -a -q) -f
 # Delete previously containers images
-sudo docker rmi $(sudo docker images -q)
+sudo docker rmi $(sudo docker images -q) -f
 
 # Create folder for Thingsboard deployment
 mkdir thingsboard-docker
