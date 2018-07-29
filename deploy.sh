@@ -45,7 +45,7 @@ sudo rm -rf /home/docker/hsqldb_volume
 # Deploy Thingsboard with demo data
 # ADD_SCHEMA_AND_SYSTEM_DATA=true ADD_DEMO_DATA=true bash -c 'sudo docker-compose up -d tb'
 # Deploy simple Thingsboard
-sudo docker-compose up -d tb
+sudo docker-compose up -d
 
 # Deploy Portainer for easiest container management
 sudo docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
