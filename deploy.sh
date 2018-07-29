@@ -26,7 +26,7 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-c
 sudo chmod +x /usr/local/bin/docker-compose
 
 # Delete all previously containers
-sudo docker rm $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q) -f
 # Delete previously containers images
 sudo docker rmi $(sudo docker images -q)
 
