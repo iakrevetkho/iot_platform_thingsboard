@@ -46,7 +46,7 @@ sudo docker-compose up -d tb
 sudo docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
 # Deploy Node-Red
-sudo docker run -d -p 1880:1880 --network="thingsboard-docker-default" --restart=always --name Node-Red nodered/node-red-docker
+sudo docker run -d -p 1880:1880 --network="thingsboard-docker_default" --restart=always --name Node-Red nodered/node-red-docker
 
 # Deploy Swagger Editor
-sudo docker run -d -p 1000:8080 --network="thingsboard-docker-default" --restart=always swaggerapi/swagger-editor
+sudo docker run -d -p 1000:8080 --network="thingsboard-docker_default" --restart=always swaggerapi/swagger-editor
