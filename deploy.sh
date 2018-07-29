@@ -43,6 +43,9 @@ sudo rm -rf /home/docker/postgres_volume
 # Deploy simple Thingsboard
 sudo docker-compose up -d
 
+# Return to main folder
+cd ..
+
 # Deploy Portainer for easiest container management
 sudo docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
@@ -51,6 +54,10 @@ sudo docker run -d -p 1880:1880 --network="thingsboard-docker_default" --restart
 
 # Deploy Swagger Editor
 sudo docker run -d -p 1000:8080 --network="thingsboard-docker_default" --restart=always swaggerapi/swagger-editor
+
+# Installing monitoring system
+cd monitoring
+docker-compose up -d
 
 # Cleaning gurbage
 
