@@ -2,7 +2,7 @@ version: '2'
 
 services:
     prometheus:
-        image: prom/prometheus:latest
+        image: prom/prometheus:stable
         container_name: monitoring_prometheus
         restart: unless-stopped
         volumes:
@@ -21,14 +21,14 @@ services:
           - node-exporter:node-exporter
 
     node-exporter:
-        image: prom/node-exporter:latest
+        image: prom/node-exporter:stable
         container_name: monitoring_node_exporter
         restart: unless-stopped
         expose:
           - 9100
 
     cadvisor:
-        image: google/cadvisor:latest
+        image: google/cadvisor:stable
         container_name: monitoring_cadvisor
         restart: unless-stopped
         volumes:
@@ -40,7 +40,7 @@ services:
           - 8080
 
     grafana:
-        image: grafana/grafana:latest
+        image: grafana/grafana:stable
         container_name: monitoring_grafana
         restart: unless-stopped
         links:
