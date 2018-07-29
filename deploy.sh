@@ -30,17 +30,13 @@ sudo docker rm $(sudo docker ps -a -q) -f
 # Delete previously containers images
 sudo docker rmi $(sudo docker images -q) -f
 
-# Create folder for Thingsboard deployment
-mkdir thingsboard-docker
+# Go to folder for Thingsboard deployment
 cd thingsboard-docker
-
-# Download Thingsboard docker files
-curl -L https://raw.githubusercontent.com/thingsboard/thingsboard/release-2.0/docker/docker-compose.yml > docker-compose.yml
-curl -L https://raw.githubusercontent.com/thingsboard/thingsboard/release-2.0/docker/.env > .env
-curl -L https://raw.githubusercontent.com/thingsboard/thingsboard/release-2.0/docker/tb.env > tb.env
 
 # Remove previous version of Thingsboard
 sudo rm -rf /home/docker/hsqldb_volume
+sudo rm -rf /home/docker/cassandra_volume
+sudo rm -rf /home/docker/postgres_volume
 
 # Deploy Thingsboard with demo data
 # ADD_SCHEMA_AND_SYSTEM_DATA=true ADD_DEMO_DATA=true bash -c 'sudo docker-compose up -d tb'
