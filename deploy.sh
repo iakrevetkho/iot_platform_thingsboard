@@ -38,10 +38,10 @@ curl -L https://raw.githubusercontent.com/thingsboard/thingsboard/release-2.0/do
 sudo rm -rf /home/docker/hsqldb_volume
 
 # Add Demo data to Thiingsboard
-ADD_SCHEMA_AND_SYSTEM_DATA=true ADD_DEMO_DATA=true bash -c 'docker-compose up -d tb'
+ADD_SCHEMA_AND_SYSTEM_DATA=true ADD_DEMO_DATA=true bash -c 'sudo docker-compose up -d tb'
 
 # Deploy thingsboard
-docker-compose up -d tb
+sudo docker-compose up -d tb
 
 # Deploy Portainer for easiest container management
 sudo docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
