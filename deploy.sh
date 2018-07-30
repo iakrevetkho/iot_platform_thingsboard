@@ -55,9 +55,5 @@ sudo docker run -d -p 1880:1880 --network="thingsboard-docker_default" --restart
 # Deploy Swagger Editor
 sudo docker run -d -p 1000:8080 --network="thingsboard-docker_default" --restart=always swaggerapi/swagger-editor
 
-# Installing monitoring system
-cd monitoring
-sudo docker-compose up -d
-
 # Cleaning gurbage
 
