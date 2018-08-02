@@ -23,6 +23,7 @@ services:
       - "8080:8080"
       - "1883:1883"
       - "5683:5683/udp"
+    restart: always
     env_file:
       - tb.env
     environment:
@@ -36,6 +37,7 @@ services:
     ports:
       - "9042"
       - "9160"
+    restart: always
     volumes:
       - "${CASSANDRA_DATA_DIR}:/var/lib/cassandra"
   zk:
@@ -47,6 +49,7 @@ services:
     image: "postgres:9.6"
     ports:
     - "5432"
+    restart: always
     environment:
       - POSTGRES_DB=${POSTGRES_DB}
     volumes:
