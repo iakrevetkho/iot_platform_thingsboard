@@ -69,6 +69,7 @@ sudo docker run \
   --volume=/dev/disk/:/dev/disk:ro \
   --publish=1001:8080 \
   --detach=true \
+  --restart=always \
   --name=cadvisor \
   google/cadvisor:latest
 
