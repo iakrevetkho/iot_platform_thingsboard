@@ -47,13 +47,25 @@ sudo docker-compose up -d
 cd ..
 
 # Deploy Portainer for easiest container management
-sudo docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+sudo docker run -d -p 1002:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
 # Deploy Node-Red
-sudo docker run -d -p 1880:1880 --network="thingsboard-docker_default" --restart=always --name Node-Red nodered/node-red-docker
+sudo docker run -d -p 1003:1880 --network="thingsboard-docker_default" --restart=always --name Node-Red nodered/node-red-docker
 
 # Deploy Swagger Editor
 sudo docker run -d -p 1000:8080 --network="thingsboard-docker_default" --restart=always swaggerapi/swagger-editor
+
+#Deploy cAdvisor for monitoring resources
+sudo docker run \
+  --volume=/:/rootfs:ro \
+  --volume=/var/run:/var/run:rw \
+  --volume=/sys:/sys:ro \
+  --volume=/var/lib/docker/:/var/lib/docker:ro \
+  --volume=/dev/disk/:/dev/disk:ro \
+  --publish=1001:8080 \
+  --detach=true \
+  --name=cadvisor \
+  google/cadvisor:latest
 
 # Cleaning gurbage
 
