@@ -46,14 +46,19 @@ sudo docker-compose up -d
 # Return to main folder
 cd ..
 
+# 1000 - Portainer
+# 1001 - cAdvisor
+# 1002 - Node-Red
+# 1003 - Swagger Editor
+
 # Deploy Portainer for easiest container management
-sudo docker run -d -p 1002:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+sudo docker run -d -p 1000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
 # Deploy Node-Red
-sudo docker run -d -p 1003:1880 --network="thingsboard-docker_default" --restart=always --name Node-Red nodered/node-red-docker
+sudo docker run -d -p 1002:1880 --network="thingsboard-docker_default" --restart=always --name Node-Red nodered/node-red-docker
 
 # Deploy Swagger Editor
-sudo docker run -d -p 1000:8080 --network="thingsboard-docker_default" --restart=always swaggerapi/swagger-editor
+sudo docker run -d -p 1003:8080 --network="thingsboard-docker_default" --restart=always swaggerapi/swagger-editor
 
 #Deploy cAdvisor for monitoring resources
 sudo docker run \
